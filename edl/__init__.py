@@ -234,7 +234,9 @@ class TimewarpMatcher(Matcher):
     def apply(self, stack, line):
         m = re.search(self.regexp, line)
         if m:
-            stack[-1].timewarp = Timewarp(m.group(1), m.group(2), m.group(3), self.fps)
+            stack[-1].timewarp = Timewarp(
+                m.group(1), m.group(2), m.group(3), self.fps
+            )
             if float(m.group(2)) < 0:
                 stack[-1].timewarp.reverse = True
 
@@ -416,7 +418,9 @@ class Event(object):
                 "rec_start_tc": self.rec_start_tc,
                 "rec_end_tc": self.rec_end_tc,
                 "effect": effect,
-                "notes": "%s\n" % "\n".join(self.comments) if self.comments else "",
+                "notes": "%s\n" % "\n".join(self.comments)
+                if self.comments
+                else "",
                 "timewarp": "%s\n" % self.timewarp.to_string()
                 if self.has_timewarp()
                 else "",

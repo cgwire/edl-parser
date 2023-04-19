@@ -16,17 +16,29 @@ class ParserTestCase(unittest.TestCase):
         with open("../tests/test_data/test_24.edl") as f:
             s = p.parse(f)
 
-        self.assertEqual(s.events[0].clip_name, "clip 1", "Failed clip name test")
-        self.assertEqual(s.events[0].src_length(), 1440, "Wrong source frame length")
-        self.assertEqual(s.events[0].rec_length(), 1440, "Wrong record frame length")
         self.assertEqual(
-            s.events[0].src_end_tc.frame_number, 87840, "Wrong source end timecode"
+            s.events[0].clip_name, "clip 1", "Failed clip name test"
         )
         self.assertEqual(
-            s.events[0].rec_start_tc.frame_number, 0, "Wrong record start timecode"
+            s.events[0].src_length(), 1440, "Wrong source frame length"
         )
         self.assertEqual(
-            s.events[0].rec_end_tc.frame_number, 1440, "Wrong record end timecode"
+            s.events[0].rec_length(), 1440, "Wrong record frame length"
+        )
+        self.assertEqual(
+            s.events[0].src_end_tc.frame_number,
+            87840,
+            "Wrong source end timecode",
+        )
+        self.assertEqual(
+            s.events[0].rec_start_tc.frame_number,
+            0,
+            "Wrong record start timecode",
+        )
+        self.assertEqual(
+            s.events[0].rec_end_tc.frame_number,
+            1440,
+            "Wrong record end timecode",
         )
         self.assertEqual(
             s.events[1].clip_name, "clip #2", "Failed clip name test char 2"
@@ -46,7 +58,9 @@ class ParserTestCase(unittest.TestCase):
             "Wrong Source start complex event",
         )
         self.assertEqual(
-            s.events[5].src_end_tc.frame_number, 697, "Wrong Source end complex event"
+            s.events[5].src_end_tc.frame_number,
+            697,
+            "Wrong Source end complex event",
         )
         self.assertEqual(
             s.events[5].rec_start_tc.frame_number,
@@ -54,7 +68,9 @@ class ParserTestCase(unittest.TestCase):
             "Wrong Source start complex event",
         )
         self.assertEqual(
-            s.events[5].rec_end_tc.frame_number, 2857, "Wrong Source end complex event"
+            s.events[5].rec_end_tc.frame_number,
+            2857,
+            "Wrong Source end complex event",
         )
 
     def test_pal(self):
