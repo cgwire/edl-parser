@@ -270,8 +270,8 @@ class EventMatcher(Matcher):
             matches = m.groups()
             keys = ['num', 'reel', 'track', 'tr_code', 'aux', 'src_start_tc',
                     'src_end_tc', 'rec_start_tc', 'rec_end_tc']
-            values = map(self.stripper, matches)
-            evt = Event(dict(zip(keys, values)))
+            values = list(map(self.stripper, matches))
+            evt = Event(dict(list(zip(keys, values))))
             t = evt.tr_code
             if t == 'C':
                 if len(stack) > 0:

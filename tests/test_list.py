@@ -46,7 +46,7 @@ class ListTestCase(unittest.TestCase):
         with open('../tests/test_data/test.edl') as f:
             expected_edl = f.readlines()
 
-        print s.to_string()
+        print(s.to_string())
 
         self.assertEqual(
             ''.join(expected_edl),
@@ -63,7 +63,7 @@ class ListTestCase(unittest.TestCase):
         with open('../tests/test_data/test_50.edl') as f:
             expected_edl = f.readlines()
 
-        print s.to_string()
+        print(s.to_string())
 
         self.assertEqual(
             ''.join(expected_edl),
