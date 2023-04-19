@@ -20,10 +20,10 @@ class ListTestCase(unittest.TestCase):
     def testing_to_edl_method_will_output_the_standard_edl_case1(self):
         """testing if to_string will output the EDL as string"""
         p = edl.Parser("24")
-        with open("../tests/test_data/test_24.edl") as f:
+        with open("tests/test_data/test_24.edl") as f:
             s = p.parse(f)
 
-        with open("../tests/test_data/test_24.edl") as f:
+        with open("tests/test_data/test_24.edl") as f:
             expected_edl = f.readlines()
 
         self.maxDiff = None
@@ -33,10 +33,10 @@ class ListTestCase(unittest.TestCase):
     def testing_to_edl_method_will_output_the_standard_edl_case2(self):
         """testing if to_string will output the EDL as string"""
         p = edl.Parser("24")
-        with open("../tests/test_data/test.edl") as f:
+        with open("tests/test_data/test.edl") as f:
             s = p.parse(f)
 
-        with open("../tests/test_data/test.edl") as f:
+        with open("tests/test_data/test.edl") as f:
             expected_edl = f.readlines()
 
         print(s.to_string())
@@ -46,10 +46,10 @@ class ListTestCase(unittest.TestCase):
     def testing_to_edl_method_will_output_the_standard_edl_case3(self):
         """testing if to_string will output the EDL as string"""
         p = edl.Parser("24")
-        with open("../tests/test_data/test_50.edl") as f:
+        with open("tests/test_data/test_50.edl") as f:
             s = p.parse(f)
 
-        with open("../tests/test_data/test_50.edl") as f:
+        with open("tests/test_data/test_50.edl") as f:
             expected_edl = f.readlines()
 
         print(s.to_string())
