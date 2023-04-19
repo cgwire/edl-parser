@@ -1,6 +1,6 @@
-# How to create a new release for EDL-parser
+# How to create a new release for EDL-reader
 
-We release EDL-parser versions through Github. Every time a new version is ready, we
+We release EDL-reader versions through Github. Every time a new version is ready, we
 follow this process:
 
 1. Up the version number located the `edl/__version__` file.
@@ -20,7 +20,7 @@ git commit edl/__version__.py -m $release_number
 git tag v$release_number
 git push origin master --tag
 python setup.py bdist_wheel --universal
-twine upload dist/edl_parser-$release_number-py2.py3-none-any.whl
+twine upload dist/edl_reader-$release_number-py2.py3-none-any.whl
 ```
 
 # Deployment

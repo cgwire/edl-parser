@@ -1,11 +1,11 @@
-edl-parser
+edl-reader
 ==========
 
 A python EDL (Edit Decision List) parsing library, based on the ruby EDL
 library by Julik Tarkhanov http://guerilla-di.org/edl/. Still a work in
 progress so collaboration welcome.
 
-https://github.com/cgwire/edl-parser
+https://github.com/cgwire/edl-reader
 
 Usage::
 
