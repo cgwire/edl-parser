@@ -15,7 +15,7 @@ class List(object):
     """The EDL it self.
 
     Holds :class:`.Event` instances. It can be indexed to reach each of the
-    :class:`.Event`\ s like::
+    :class:`.Event`\\ s like::
 
       >>> l = List('25')
       >>> l.append(Event())
@@ -157,7 +157,7 @@ class CommentMatcher(Matcher):
     """No documentation for this class yet."""
 
     def __init__(self):
-        Matcher.__init__(self, "\*\s*(.+)")
+        Matcher.__init__(self, "\\*\\s*(.+)")
 
     def apply(self, stack, line):
         # print line
@@ -165,7 +165,7 @@ class CommentMatcher(Matcher):
         if m:
             if len(stack) > 0:
                 stack[-1].comments.append("* " + m.group(1))
-                mo = re.search("\*\s+FROM\s+CLIP\s+NAME:\s+(.+)", line)
+                mo = re.search("\\*\\s+FROM\\s+CLIP\\s+NAME:\\s+(.+)", line)
                 if mo:
                     stack[-1].clip_name = mo.group(1).strip()
 
@@ -174,7 +174,7 @@ class FallbackMatcher(Matcher):
     """No documentation for this class yet."""
 
     def __init__(self):
-        Matcher.__init__(self, "/^(\w)(.+)/")
+        Matcher.__init__(self, "/^(\\w)(.+)/")
 
     def apply(self, stack, line):
         pass
@@ -186,7 +186,7 @@ class NameMatcher(Matcher):
     def __init__(self):
         # TODO: shouldn't it be '\*\s*FROM\s+CLIP\s+NAME:(\s+)(.+)' as above,
         #       add a test for this
-        Matcher.__init__(self, "\*\s*FROM CLIP NAME:(\s+)(.+)")
+        Matcher.__init__(self, "\\*\\s*FROM CLIP NAME:(\\s+)(.+)")
 
     def apply(self, stack, line):
         m = re.search(self.regex, line)
@@ -200,7 +200,7 @@ class SourceMatcher(Matcher):
     """No documentation for this class yet."""
 
     def __init__(self):
-        Matcher.__init__(self, "\*\s*SOURCE FILE:(\s+)(.+)")
+        Matcher.__init__(self, "\\*\\s*SOURCE FILE:(\\s+)(.+)")
 
     def apply(self, stack, line):
         m = re.search(self.regex, line)
@@ -214,7 +214,7 @@ class EffectMatcher(Matcher):
     """No documentation for this class yet."""
 
     def __init__(self):
-        Matcher.__init__(self, "EFFECTS NAME IS(\s+)(.+)")
+        Matcher.__init__(self, "EFFECTS NAME IS(\\s+)(.+)")
 
     def apply(self, stack, line):
         m = re.search(self.regex, line)
@@ -227,7 +227,9 @@ class TimewarpMatcher(Matcher):
 
     def __init__(self, fps):
         self.fps = fps
-        self.regexp = "M2\s+(\w+)\s+(\-*\d+\.\d+)\s+(\d+:\d+:\d+[\:\;]\d+)"
+        self.regexp = (
+            "M2\\s+(\\w+)\\s+(\\-*\\d+\\.\\d+)\\s+(\\d+:\\d+:\\d+[\\:\\;]\\d+)"
+        )
         # self.regexp = 'M2\s+(\S+)\s+(\S+)\s+(\S+)'
         Matcher.__init__(self, self.regexp)
 
@@ -283,7 +285,7 @@ class EventMatcher(Matcher):
                 evt.transition = Cut()
             elif t == "D":
                 evt.transition = Dissolve()
-            elif re.match("W\d+", t):
+            elif re.match("W\\d+", t):
                 evt.transition = Wipe()
             elif t == "K":
                 evt.transition = Key()
