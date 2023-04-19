@@ -1,30 +1,12 @@
 #!/usr/bin/env python
 
 from distutils.core import setup
-import edl
+from distutils.util import convert_path
 
-requires = ["timecode"]
+# Get version without sourcing gazu module
+# (to avoid importing dependencies yet to be installed)
+main_ns = {}
+with open(convert_path("edl/__version__.py")) as ver_file:
+    exec(ver_file.read(), main_ns)
 
-setup(
-    name="edl",
-    version=edl.__version__,
-    description="Simple EDL reading library",
-    author="Simon Hargreaves",
-    author_email="simon@simon-hargreaves.com",
-    url="http://www.simon-hargreaves.com/python-edl",
-    packages=["edl"],
-    classifiers=[
-        "Development Status :: 3 - Alpha",
-        "Environment :: Console",
-        "Intended Audience :: Developers",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: MacOS :: MacOS X",
-        "Operating System :: Microsoft :: Windows",
-        "Operating System :: POSIX",
-        "Programming Language :: Python",
-        "Natural Language :: English",
-        "Topic :: Multimedia :: Video",
-        "Topic :: Software Development :: Libraries",
-    ],
-    install_requires=requires,
-)
+setup(version=main_ns["__version__"], python_requires=">= 3.7")
