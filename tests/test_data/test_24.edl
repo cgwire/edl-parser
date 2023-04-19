@@ -29,8 +29,8 @@ EFFECTS NAME IS Constant Power
 
 009  AX       V     C        00:00:00:00 00:00:30:01 00:02:10:21 00:02:40:22
 * FROM CLIP NAME: Test rename
-M2   AX       -25.0                      00:00:00:00
+M2   AX       -25.0                      00:00:00:00 
 
 010  AX       AA    C        00:00:00:00 00:00:30:01 00:02:10:21 00:02:40:22
 * FROM CLIP NAME: Test rename
-M2   AX       -25.0                      00:00:00:00
+M2   AX       -25.0                      00:00:00:00 
