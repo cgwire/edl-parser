@@ -106,9 +106,14 @@ class List(object):
         output_buffer = ["TITLE: %s" % self.title, "\n"]
         if self.fcm:
             output_buffer.append("FCM: %s\n" % self.fcm)
+        output_buffer.append("\n")
+        last_event = None
         for event in self.events:
+            if last_event is not None and event.num != last_event.num:
+                output_buffer.append("\n")
             output_buffer.append(event.to_string())
-            # output_buffer.append('')
+            last_event = event
+
         return "".join(output_buffer)
 
 
@@ -403,7 +408,7 @@ class Event(object):
                 pass
 
         s = (
-            "%(num)-6s %(reel)-32s %(track)-5s %(tr_code)-3s %(aux)-4s "
+            "%(num)-4s %(reel)-8s %(track)-5s %(tr_code)-4s %(aux)-3s "
             "%(src_start_tc)s %(src_end_tc)s %(rec_start_tc)s "
             "%(rec_end_tc)s\n"
             "%(effect)s"

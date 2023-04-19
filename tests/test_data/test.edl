@@ -8,7 +8,6 @@ TITLE: Sequence 01
 
 003  AX       V     C        00:00:00:00 00:00:30:01 00:00:59:24 00:01:30:00
 * FROM CLIP NAME: Test rename
-AUD  3    4
 
 004  AX       V     C        00:00:00:00 00:00:24:17 00:01:30:00 00:01:54:17
 * FROM CLIP NAME: Test rename
@@ -36,8 +35,8 @@ EFFECTS NAME IS Constant Power
 
 010  AX       V     C        00:00:00:00 00:00:30:01 00:02:10:21 00:02:40:22
 * FROM CLIP NAME: Test rename
-M2   AX       -25.0                      00:00:00:00 
+M2   AX       -25.0                      00:00:00:00
 
 011  AX       AA    C        00:00:00:00 00:00:30:01 00:02:10:21 00:02:40:22
 * FROM CLIP NAME: Test rename
-M2   AX       -25.0                      00:00:00:00 
+M2   AX       -25.0                      00:00:00:00
