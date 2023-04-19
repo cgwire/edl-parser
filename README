@@ -1,25 +1,22 @@
-python-edl
+edl-parser
 ==========
 
 A python EDL (Edit Decision List) parsing library, based on the ruby EDL
 library by Julik Tarkhanov http://guerilla-di.org/edl/. Still a work in
 progress so collaboration welcome.
 
-Uses pytimecode.py to handle the Timecode mathematics and should run on
-Python 2.7+
-
-https://github.com/simonh10/python-edl
+https://github.com/cgwire/edl-parser
 
 Usage::
 
-    from edl.edl import Parser
-    parser=Parser('23.98')
-    with open('file.edl') as f:
-        edl=parser.parse(f)
+    from edl import Parser
+    parser = Parser("23.98")
+    with open("file.edl") as f:
+        edl = parser.parse(f)
         for event in edl.events:
-            print "Event Number:"+str(event.num)
-            print "Source file:"+str(event.source_file)
-            print "Clip Name:"+str(event.clip_name)
+            print("Event Number: %s" % (event.num))
+            print("Source file: %s" % (event.source_file))
+            print("Clip Name: %s " % (event.clip_name))
 
 Accepted framerate values ['60', '59.94', '50', '30', '29.97', '25', '24',
 '23.98'] whole number frame rates are more tested than others, but the accuracy
